@@ -1,0 +1,139 @@
+/* HomestayDetails.css */
+.hs-container { max-width: 1100px; margin: 24px auto; padding: 0 16px; color:#111; }
+
+/* Gallery */
+.hs-gallery { display:grid; gap:10px; grid-template-rows:auto 74px; }
+.hs-main img { width:100%; height:420px; object-fit:cover; border-radius:12px; }
+.hs-thumbs { display:flex; gap:10px; overflow-x:auto; }
+.hs-thumb { border:none; padding:0; background:#fff; border-radius:8px; overflow:hidden; cursor:pointer; }
+.hs-thumb img { width:120px; height:74px; object-fit:cover; display:block; }
+.hs-thumb.active { outline:2px solid #111; }
+
+/* Header */
+.hs-header { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; margin-top:16px; }
+.hs-title h1 { font-size:1.5rem; margin:0 0 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.hs-sub { display:flex; gap:10px; align-items:center; }
+.hs-location { color:#6b7280; max-width:420px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.hs-vibe { padding:4px 8px; border-radius:999px; background:#eef2ff; font-weight:600; font-size:.85rem; }
+.hs-vibe.offbeat { background:#ecfeff; }
+.hs-vibe.city { background:#f5f5f5; }
+
+.hs-price-box { text-align:right; min-width:220px; }
+.hs-price { font-size:1.8rem; font-weight:800; line-height:1.1; }
+.hs-price-unit { color:#6b7280; margin-top:2px; }
+.hs-rating-aggregate { margin-top:8px; display:flex; gap:8px; justify-content:flex-end; align-items:center; }
+.hs-badge { background:#26a541; color:#fff; padding:4px 8px; border-radius:6px; font-weight:700; }
+.hs-count { color:#6b7280; }
+
+/* Sections */
+.hs-section { margin-top:28px; }
+.hs-section h2 { font-size:1.2rem; margin:0 0 12px; }
+
+/* Rooms */
+.hs-rooms { display:grid; gap:12px; }
+.hs-room { display:grid; grid-template-columns:140px 1fr auto; gap:14px; border:1px solid #eee; border-radius:12px; padding:12px; }
+.hs-room-img img { width:140px; height:100px; object-fit:cover; border-radius:10px; }
+.hs-room-body h3 { margin:0 0 6px; font-size:1rem; }
+.hs-room-meta { color:#6b7280; display:flex; gap:12px; font-size:.92rem; margin-bottom:6px; }
+.hs-room-amenities .pill { background:#f3f4f6; border-radius:999px; padding:4px 8px; margin-right:6px; display:inline-block; font-size:.85rem; }
+.hs-room-price { text-align:right; display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+.hs-room-price .amt { font-weight:800; }
+.hs-room-price .unit { color:#6b7280; font-size:.92rem; }
+.btn-primary { background:#111827; color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+
+/* Pills (experiences) */
+.hs-pills { display:flex; flex-wrap:wrap; gap:8px; }
+.pill { background:#eef2ff; color:#111; padding:6px 10px; border-radius:999px; font-weight:600; font-size:.9rem; }
+
+/* Circuit */
+.hs-circuit-box { display:flex; align-items:center; justify-content:space-between; border:1px solid #eee; border-radius:12px; padding:12px; }
+.btn-link { color:#1f7ae0; text-decoration:underline; }
+
+/* Reviews */
+.hs-review-form { display:grid; gap:10px; margin-bottom:14px; }
+.hs-review-form input, .hs-review-form textarea {
+  border:1px solid #e5e7eb; border-radius:8px; padding:10px; font:inherit;
+}
+.hs-stars-input .star { font-size:20px; color:#d1d5db; background:none; border:none; cursor:pointer; }
+.hs-stars-input .star.active { color:#f59e0b; }
+.hs-reviews { display:grid; gap:12px; }
+.hs-review { border:1px solid #eee; border-radius:12px; padding:10px; }
+.hs-review-h { display:flex; justify-content:space-between; }
+.r-name { font-weight:700; }
+.r-stars { color:#f59e0b; }
+.r-body { margin:6px 0; }
+.r-date { color:#6b7280; font-size:.9rem; }
+.muted { color:#6b7280; }
+
+/* container look */
+.hs-section.hs-circuit .hs-circuit-box {        /* [ADDED] */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+
+/* circuit name text */
+.hs-section.hs-circuit .c-name {                /* [ADDED] */
+  font-weight: 600;
+  color: #111827; /* gray-900 */
+}
+
+/* primary themed button (pill) */
+.btn-primary {                                  /* [ADDED] */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  background: #2563eb;         /* brand (tailwind blue-600) */
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(37,99,235,.25);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.btn-primary:hover {                             /* [ADDED] */
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(37,99,235,.30);
+}
+.btn-primary:active {                            /* [ADDED] */
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(37,99,235,.25);
+}
+.btn-primary:focus-visible {                     /* [ADDED] */
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.35);
+}
+
+/* keep text on one line */
+.hs-circuit-btn {                                /* [ADDED] */
+  white-space: nowrap;
+}
+
+/* Keep the review button compact and non-full-width */
+.hs-review-form .btn-primary {                 /* [ADDED] */
+  width: auto;
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+/* Small button size variant */
+.btn-sm {                                      /* [ADDED] */
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+/* Optional: better disabled state */
+.btn-primary:disabled {                        /* [ADDED] */
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}

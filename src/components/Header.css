@@ -1,0 +1,85 @@
+.header {
+  background-color: white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 32px;
+}
+
+.logo span {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.nav-menu {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .menu-item {
+    cursor: pointer;
+    position: relative;
+  }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.header-icon {
+  font-size: 1.25rem;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.call-btn {
+  background-color: #ff4d30;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.call-btn:hover {
+  background-color: #e94228;
+}
+
+.phone-icon {
+  font-size: 0.75rem;
+}

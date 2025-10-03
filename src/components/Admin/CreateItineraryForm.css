@@ -1,0 +1,137 @@
+.itinerary-form {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.itinerary-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+}
+
+.itinerary-form h3 {
+  margin-top: 30px;
+  font-size: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+  color: #444;
+}
+
+.itinerary-form h4 {
+  font-size: 18px;
+  margin: 20px 0 10px;
+  color: #555;
+}
+
+.itinerary-form .form-group {
+  margin-bottom: 20px;
+}
+
+.itinerary-form input[type="text"],
+.itinerary-form input[type="number"],
+.itinerary-form input[type="file"],
+.itinerary-form select,
+.itinerary-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  transition: border 0.2s;
+}
+
+.itinerary-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.itinerary-form input:focus,
+.itinerary-form textarea:focus,
+.itinerary-form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.itinerary-form label {
+  font-weight: 500;
+  color: #444;
+}
+
+.itinerary-form .day-block {
+  background: #f9f9f9;
+  padding: 20px;
+  margin: 20px 0;
+  border-left: 5px solid #007bff;
+  border-radius: 8px;
+}
+
+.day-block input,
+.day-block select,
+.day-block textarea {
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+.day-block button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.day-block button:hover {
+  background: #c0392b;
+}
+
+.itinerary-form .submit-btn,
+.itinerary-form button[type="submit"],
+.itinerary-form button[type="button"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.itinerary-form button[type="submit"]:hover,
+.itinerary-form button[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+.itinerary-form input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+input[type="file"] {
+  padding: 6px 0;
+}
+
+@media (max-width: 600px) {
+  .itinerary-form {
+    padding: 20px;
+  }
+
+  .day-block {
+    padding: 15px;
+  }
+}
+.itinerary-form select[multiple] {
+  min-height: 120px;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 6px;
+}

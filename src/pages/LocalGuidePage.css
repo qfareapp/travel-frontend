@@ -1,0 +1,114 @@
+.guide-page {
+  margin-top: 1rem;
+}
+
+.guide-header {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.guide-header img {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.guide-info h1 {
+  margin: 0;
+}
+
+.guide-loc {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 4px 0;
+}
+
+.guide-bio {
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+.stars {
+  font-size: 1rem;
+  color: #f39c12;
+}
+.stars-num {
+  margin-left: 6px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.itin-list {
+  list-style: none;
+  padding: 0;
+}
+.itin-list li {
+  padding: 6px 0;
+  cursor: pointer;
+  color: #0077cc;
+}
+.itin-list li:hover {
+  text-decoration: underline;
+}
+.itin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.itin-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.itin-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,.12);
+}
+
+.itin-img img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.itin-body {
+  padding: 0.75rem 1rem;
+}
+
+.itin-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.itin-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 4px 0 6px;
+}
+
+.itin-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.chip {
+  background: #f3f3f3;
+  border-radius: 20px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  color: #333;
+}
