@@ -6,7 +6,7 @@ const BookingsPage = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/admin/bookings")
+    axios.get("${API_BASE}/api/admin/bookings")
       .then((res) => setBookings(res.data))
       .catch((err) => console.error("Error fetching bookings:", err));
   }, []);

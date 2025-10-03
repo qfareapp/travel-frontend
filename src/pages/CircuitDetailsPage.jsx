@@ -2,10 +2,9 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { API_BASE } from "../config";
 import "./CircuitDetailsPage.css";
 
-const API_BASE =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 const toUrl = (p) => {
   if (!p) return "/placeholder-circuit.jpg";

@@ -1,13 +1,11 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './ItineraryResultPage.css';
+import { API_BASE } from "../config";
+
 
 /* ===================== helpers ===================== */
 
-const API_BASE =
-  (import.meta?.env && import.meta.env.VITE_API_BASE_URL) ||
-  (typeof window !== 'undefined' && window.__API_BASE__) ||
-  'http://localhost:5000';
 
 const n = (v, d = 0) => {
   const num = Number(v);

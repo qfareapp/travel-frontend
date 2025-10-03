@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { API_BASE } from "../../config";
 
 const CSS_ID = 'step4-experiences-rail-css';
 const CSS_TEXT = `
@@ -102,17 +103,25 @@ const Step4Experiences = ({ formData, updateData, nextStep, prevStep }) => {
 
   // Fetch experiences
   useEffect(() => {
-    const fetchExperiences = async () => {
-      try {
-        const res = await axios.get('http://localhost:5000/api/circuits/experiences');
-        const unique = Array.from(new Map(res.data.map(i => [i.value, i])).values());
-        setExperienceOptions(unique);
-      } catch (err) {
-        console.error('Failed to fetch experiences:', err);
-      }
-    };
-    fetchExperiences();
-  }, []);
+  const fetchExperiences = async () => {
+    try {
+      const res = await axios.get(`${API_BASE}/api/circuits/experiences`);
+      console.log("Experiences API response:", res.data);
+
+      // Normalize response
+      const raw = Array.isArray(res.data)
+        ? res.data
+        : res.data.experiences || res.data.data || [];
+
+      const uniqueOptions = Array.from(new Map(raw.map(opt => [opt.value, opt])).values());
+      setExperienceOptions(uniqueOptions);
+    } catch (err) {
+      console.error("Failed to fetch experiences:", err);
+      setExperienceOptions([]);
+    }
+  };
+  fetchExperiences();
+}, []);
 
   const toggleActivity = (value) => {
     setSelected((prev) =>

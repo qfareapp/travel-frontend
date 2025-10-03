@@ -3,11 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import "./LocalGuidePage.css";
-
-const API_BASE =
-  (import.meta?.env && import.meta.env.VITE_API_BASE_URL) ||
-  (typeof window !== "undefined" && window.__API_BASE__) ||
-  "http://localhost:5000";
+import { API_BASE } from "../config";
 
 const toUrl = (p) => {
   if (!p) return "/placeholder-circuit.jpg";

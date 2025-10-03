@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { API_BASE } from "../../config";
 
 const CSS_ID = 'step2-tags-rail-css';
 const CSS_TEXT = `
@@ -148,17 +149,23 @@ const Step2Tags = ({ formData, updateData, nextStep, prevStep }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const res = await axios.get('http://localhost:5000/api/circuits/categories');
-        const uniqueOptions = Array.from(new Map(res.data.map(opt => [opt.value, opt])).values());
-        setTagOptions(uniqueOptions);
-      } catch (err) {
-        console.error('Error fetching categories:', err);
-      }
-    };
-    fetchCategories();
-  }, []);
+  const fetchCategories = async () => {
+    try {
+      const res = await axios.get(`${API_BASE}/api/circuits/categories`);
+      console.log("Categories API response:", res.data);
+
+      const raw = Array.isArray(res.data) ? res.data : res.data.categories || [];
+      const uniqueOptions = Array.from(new Map(raw.map(opt => [opt.value, opt])).values());
+
+      setTagOptions(uniqueOptions);
+    } catch (err) {
+      console.error("Error fetching categories:", err);
+      setTagOptions([]);
+    }
+  };
+  fetchCategories();
+}, []);
+
 
   const toggleTag = (value) => {
     setSelected((prev) =>

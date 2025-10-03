@@ -1,12 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './ItineraryConfirmPage.css';
-/* ===================== helpers (mirrors your list page) ===================== */
-
-const API_BASE =
-  (import.meta?.env && import.meta.env.VITE_API_BASE_URL) ||
-  (typeof window !== 'undefined' && window.__API_BASE__) ||
-  'http://localhost:5000';
+import { API_BASE } from "../config";
 
 const n = (v, d = 0) => {
   const num = Number(v);

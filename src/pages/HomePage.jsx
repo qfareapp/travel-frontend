@@ -2,27 +2,37 @@ import React, { useEffect, useRef, useState } from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE } from '../config';
 
 const HomePage = () => {
   const scrollRef = useRef(null);
   const [packages, setPackages] = useState([]);
   const [featuredStays, setFeaturedStays] = useState([]);
+  
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [packagesRes, staysRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/circuits'),
-        axios.get('http://localhost:5000/api/homestays'),
-        ]);
-        setPackages(packagesRes.data);
-        setFeaturedStays(staysRes.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    try {
+      const [packagesRes, staysRes] = await Promise.all([
+        axios.get(`${API_BASE}/api/circuits`),
+        axios.get(`${API_BASE}/api/homestays`),
+      ]);
+
+      console.log("Circuits API:", packagesRes.data);
+      console.log("Homestays API:", staysRes.data);
+
+      setPackages(
+        Array.isArray(packagesRes.data) ? packagesRes.data : packagesRes.data.circuits || []
+      );
+      setFeaturedStays(
+        Array.isArray(staysRes.data) ? staysRes.data : staysRes.data.homestays || []
+      );
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  fetchData();
+}, []);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -56,7 +66,7 @@ const HomePage = () => {
       <Link to={`/circuit/${place._id}`} key={index} className="card-link">
         <div className="card">
           <img
-            src={place.img ? `http://localhost:5000${place.img}` : '/images/fallback.jpg'}
+            src={place.img ? `${API_BASE}${place.img}` : '/images/fallback.jpg'}
             alt={place.name}
             className="card-image"
           />
@@ -85,7 +95,7 @@ const HomePage = () => {
   <div className="stay-card-list no-scrollbar" ref={scrollRef}>
     {featuredStays.map((stay, i) => {
       const img = stay?.images?.[0]
-        ? `http://localhost:5000${stay.images[0]}`
+        ? `${API_BASE}${stay.images[0]}`
         : '/images/placeholder-stay.jpg';
 
       const name = stay.homestayName || stay.name || 'Homestay';

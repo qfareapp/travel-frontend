@@ -3,7 +3,7 @@ import React from 'react';
 const API_BASE =
   import.meta.env.VITE_API_BASE_URL ||
   (typeof window !== 'undefined' && window.__API_BASE__) ||
-  'http://localhost:5000';
+  '${API_BASE}';
 
 const n = (v, d = 0) => (Number.isFinite(Number(v)) ? Number(v) : d);
 const inr = (v) => `₹${n(v).toLocaleString('en-IN')}`;

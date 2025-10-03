@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CreateCircuitForm.css'; 
 import axios from 'axios';
+import { API_BASE } from "../../config";
 
 const categories = ['Mountain', 'Forest', 'River', 'Tea Garden', 'Sea', 'Desert'];
 const experiences = ['Rafting', 'Kanchanjunga View', 'Trekking', 'Tea Tasting', 'Safari'];
@@ -72,7 +73,7 @@ const CreateCircuitForm = () => {
 data.append('carPriceSedan', Number(formData.carPriceSedan));
 data.append('carPriceSUV', Number(formData.carPriceSUV));
 
-      const response = await axios.post('http://localhost:5000/api/circuits', data, {
+      const response = await axios.post("${API_BASE}/api/circuits", data, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 

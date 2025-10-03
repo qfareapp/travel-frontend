@@ -144,7 +144,7 @@ const Step7ReviewAndConfirm = ({ formData, updateData, prevStep }) => {
 
   try {
     setLoading(true);
-    const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || '${API_BASE}';
     const res = await axios.post(`${API_BASE}/api/itineraries/match`, payload);
     const matched = res.data.matchedItineraries || [];
     navigate('/itinerary/result', { state: { itineraries: matched, filters: payload } });

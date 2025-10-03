@@ -2,11 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE } from "../config";
 import './HomestayDetails.css';
-
-const API_BASE =
-  (import.meta?.env && import.meta.env.VITE_API_BASE_URL) ||
-  'http://localhost:5000';
 
 const inr = v => `₹${Number(v || 0).toLocaleString('en-IN')}`;
 
@@ -129,7 +126,7 @@ export default function HomestayDetails() {
             {homestay.roomTypes.map((rt, i) => (
               <div key={i} className="hs-room">
                 <div className="hs-room-img">
-                  <img src={rt.images?.[0] ? `http://localhost:5000${rt.images[0]}` : '/images/placeholder-room.jpg'} alt={rt.name} />
+                  <img src={rt.images?.[0] ? `${API_BASE}${rt.images[0]}` : '/images/placeholder-room.jpg'} alt={rt.name} />
                 </div>
                 <div className="hs-room-body">
                   <h3>{rt.name}</h3>

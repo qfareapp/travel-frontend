@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { API_BASE } from "../../config";
 
 const CSS_ID = 'step5-travel-style-rail-css';
 const CSS_TEXT = `
@@ -117,16 +118,18 @@ const Step5TravelStyle = ({ formData, updateData, nextStep, prevStep }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetchThemes = async () => {
-      try {
-        const res = await axios.get('http://localhost:5000/api/circuits/themes');
-        setThemes(Array.isArray(res.data) ? res.data : []);
-      } catch (err) {
-        console.error('❌ Error fetching themes:', err.message);
-      }
-    };
-    fetchThemes();
-  }, []);
+  const fetchThemes = async () => {
+    try {
+      const res = await axios.get(`${API_BASE}/api/circuits/themes`);
+      console.log("Themes API response:", res.data);
+      setThemes(Array.isArray(res.data) ? res.data : res.data.themes || []);
+    } catch (err) {
+      console.error("❌ Error fetching themes:", err.message);
+      setThemes([]);
+    }
+  };
+  fetchThemes();
+}, []);
 
   const handleNext = () => {
     if (!selected) {

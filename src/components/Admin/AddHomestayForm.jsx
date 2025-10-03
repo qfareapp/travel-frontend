@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './AddHomestayForm.css';
 import axios from 'axios';
+import { API_BASE } from "../../config";
 
 const guestOptions = ['Family', 'Solo', 'Couple', 'Group'];
 const addonOptions = ['Bonfire', 'Meals', 'Pickup', 'Local Guide'];
@@ -36,7 +37,7 @@ const AddHomestayForm = () => {
 
   useEffect(() => {
     const fetchCircuits = async () => {
-      const res = await axios.get('http://localhost:5000/api/circuits');
+      const res = await axios.get(`${API_BASE}/api/circuits`);
       setCircuits(res.data);
     };
     fetchCircuits();
@@ -150,7 +151,7 @@ const AddHomestayForm = () => {
       // Images
       (formData.images || []).forEach((img) => data.append('images', img));
 
-      await axios.post('http://localhost:5000/api/homestays', data);
+      await axios.post(`${API_BASE}/api/homestays`, data);
       alert('Homestay created successfully!');
     } catch (err) {
       console.error(err);

@@ -44,8 +44,8 @@ const [carPrices, setCarPrices] = useState({
 
  useEffect(() => {
   const fetchData = async () => {
-    const circuitsRes = await axios.get('http://localhost:5000/api/circuits');
-    const homestaysRes = await axios.get('http://localhost:5000/api/homestays');
+    const circuitsRes = await axios.get("${API_BASE}/api/circuits");
+    const homestaysRes = await axios.get("${API_BASE}/api/homestays");
     setCircuits(circuitsRes.data);
     setHomestays(homestaysRes.data);
 
@@ -153,7 +153,7 @@ const [carPrices, setCarPrices] = useState({
     }
 
     // ✅ POST to backend
-    await axios.post('http://localhost:5000/api/itinerary', data);
+    await axios.post("${API_BASE}/api/itinerary", data);
     alert('✅ Itinerary created successfully!');
   } catch (err) {
     console.error('❌ Itinerary creation failed:', err.response?.data || err.message);
